@@ -1,0 +1,14 @@
+/* compact: width < 600 */
+@value compact: (max-width: 37.4375em);
+
+/* medium: 600 ≤ width < 840 */
+@value medium: (min-width: 37.5em) and (max-width: 52.4375em);
+
+/* extended: 840 ≤ width < 1200* */
+@value extended: (min-width: 52.5em) and (max-width: 74.9375em);
+
+/* large: 1200 ≤ width < 1600 */
+@value large: (min-width: 75em) and (max-width: 99.9375em);
+
+/* extraLarge: 1600 ≤ width */
+@value extraLarge: (min-width: 100em);

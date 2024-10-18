@@ -1,0 +1,19 @@
+@value compact from './layout.module.css';
+
+.example {
+  border: 2px solid var(--gray-alpha-200);
+  display: grid;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+
+  & code {
+    padding: 0;
+  }
+}
+
+@media compact {
+  .example {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}

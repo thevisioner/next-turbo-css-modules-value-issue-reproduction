@@ -1,5 +1,5 @@
 {
-  "name": "test-next-turbo-css-modules-value",
+  "name": "next-turbo-css-modules-value-issue-reproduction",
   "version": "0.1.0",
   "private": true,
   "scripts": {

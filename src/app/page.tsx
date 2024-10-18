@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import LayoutExample from "./LayoutExample";
 
 export default function Home() {
   return (
@@ -45,6 +46,8 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        <LayoutExample />
       </main>
       <footer className={styles.footer}>
         <a

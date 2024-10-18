@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ISSUE
 
-## Getting Started
+## CSS Modules @value properties missing in development with --turbo flag
 
-First, run the development server:
+### Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+CSS Modules `@value` properties issue reproduction for Next.js application in development using the --turbo flag.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Link to the reproduction
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[Issue Reproduction](https://github.com/thevisioner/next-turbo-css-modules-value-issue-reproduction)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Link to the issue
 
-## Learn More
+[Issue](https://github.com/vercel/next.js/issues/71479)
 
-To learn more about Next.js, take a look at the following resources:
+### To reproduce
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Start the application in development using the --turbo flag (next dev --turbo).
+2. Open the browser and inspect the Network tab in the DevTools (CSS files).
+3. Look for the `page.css` file with the `LayoutExample` class.
+4. Pay attention to the `@media` declaration.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Current vs. Expected behavior
 
-## Deploy on Vercel
+In development using the --turbo flag (next dev --turbo) the CSS output contains the declaration, but the value (named 'compact') is not replaced with the actual value: `@media compact {}`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+However, in case without the --turbo flag (next dev) and in case of production build (next build) the value is replaced with the actual value: `@media (max-width: 37.4375em) {}`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Environment information
+
+Operating System:
+Platform: win32
+Arch: x64
+Version: Windows 10 Home
+Available memory (MB): 32718
+Available CPU cores: 12
+Binaries:
+Node: 20.10.0
+npm: N/A
+Yarn: N/A
+pnpm: N/A
+Relevant Packages:
+next: 15.0.0-canary.197 // Latest available version is detected (15.0.0-canary.197).
+eslint-config-next: 15.0.0-canary.197
+react: 19.0.0-rc-77b637d6-20241016
+react-dom: 19.0.0-rc-77b637d6-20241016
+typescript: 5.6.3
+Next.js Config:
+output: N/A
